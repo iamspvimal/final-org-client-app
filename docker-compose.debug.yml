@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  organicclient:
+    image: organicclient
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: development
+    ports:
+      - 7500:7500
+      - 9229:9229
+    command: ["node", "--inspect=0.0.0.0:9229", "index.js"]
